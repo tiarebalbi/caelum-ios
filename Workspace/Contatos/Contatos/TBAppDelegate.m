@@ -7,6 +7,7 @@
 //
 
 #import "TBAppDelegate.h"
+#import "TBFormularioViewController.h"
 
 @implementation TBAppDelegate
 
@@ -19,6 +20,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    TBFormularioViewController *controllerInicial = [TBFormularioViewController new];
+    self.window.rootViewController = controllerInicial;
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
