@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3B9785E2-9A87-4256-BC11-2CE14F085F3D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Contatos</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>917EC231-AB68-47FB-AD42-1014B91F1CBF</key>
+		<string>ssh://github.com/tiarebalbi/caelum-ios.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Workspace/Contatos/Contatos.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>917EC231-AB68-47FB-AD42-1014B91F1CBF</key>
+		<string>../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/tiarebalbi/caelum-ios.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>917EC231-AB68-47FB-AD42-1014B91F1CBF</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>917EC231-AB68-47FB-AD42-1014B91F1CBF</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Banco</string>
+		</dict>
+	</array>
+</dict>
+</plist>
