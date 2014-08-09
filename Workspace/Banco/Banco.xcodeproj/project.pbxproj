@@ -25,6 +25,8 @@
 		92E6791E1996591F00E537B9 /* BancoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E6791C1996591F00E537B9 /* BancoViewController.m */; };
 		92E6791F1996591F00E537B9 /* BancoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E6791D1996591F00E537B9 /* BancoViewController.xib */; };
 		92E6792719966ACB00E537B9 /* Conta.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E6792619966ACB00E537B9 /* Conta.m */; };
+		92E6792B19966F7900E537B9 /* BradescoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E6792919966F7900E537B9 /* BradescoViewController.m */; };
+		92E6792C19966F7900E537B9 /* BradescoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E6792A19966F7900E537B9 /* BradescoViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,9 @@
 		92E6791D1996591F00E537B9 /* BancoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BancoViewController.xib; sourceTree = SOURCE_ROOT; };
 		92E6792519966ACB00E537B9 /* Conta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conta.h; sourceTree = "<group>"; };
 		92E6792619966ACB00E537B9 /* Conta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conta.m; sourceTree = "<group>"; };
+		92E6792819966F7900E537B9 /* BradescoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BradescoViewController.h; sourceTree = "<group>"; };
+		92E6792919966F7900E537B9 /* BradescoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BradescoViewController.m; sourceTree = "<group>"; };
+		92E6792A19966F7900E537B9 /* BradescoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BradescoViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +183,9 @@
 				92E6791B1996591F00E537B9 /* BancoViewController.h */,
 				92E6791C1996591F00E537B9 /* BancoViewController.m */,
 				92E6791D1996591F00E537B9 /* BancoViewController.xib */,
+				92E6792819966F7900E537B9 /* BradescoViewController.h */,
+				92E6792919966F7900E537B9 /* BradescoViewController.m */,
+				92E6792A19966F7900E537B9 /* BradescoViewController.xib */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -277,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92E678F01996587600E537B9 /* InfoPlist.strings in Resources */,
+				92E6792C19966F7900E537B9 /* BradescoViewController.xib in Resources */,
 				92E678FB1996587600E537B9 /* Images.xcassets in Resources */,
 				92E6791F1996591F00E537B9 /* BancoViewController.xib in Resources */,
 			);
@@ -298,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				92E678F61996587600E537B9 /* AppDelegate.m in Sources */,
+				92E6792B19966F7900E537B9 /* BradescoViewController.m in Sources */,
 				92E678F91996587600E537B9 /* Banco.xcdatamodeld in Sources */,
 				92E6791E1996591F00E537B9 /* BancoViewController.m in Sources */,
 				92E6792719966ACB00E537B9 /* Conta.m in Sources */,
@@ -500,6 +510,7 @@
 				92E679141996587600E537B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		92E679151996587600E537B9 /* Build configuration list for PBXNativeTarget "BancoTests" */ = {
 			isa = XCConfigurationList;
@@ -508,6 +519,7 @@
 				92E679171996587600E537B9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

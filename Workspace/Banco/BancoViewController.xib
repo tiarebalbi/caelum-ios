@@ -8,7 +8,7 @@
             <connections>
                 <outlet property="input" destination="g4w-4a-SKe" id="fgi-mW-Gpq"/>
                 <outlet property="saldo" destination="0LJ-4h-O2k" id="7To-Zd-gN5"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="vpF-53-yGJ"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

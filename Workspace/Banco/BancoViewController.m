@@ -58,6 +58,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    NSLog(@"MSG: Atenção alerta de memória");
 
 }
 

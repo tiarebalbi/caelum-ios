@@ -10,4 +10,12 @@
 
 @interface Conta : NSObject
 
+@property (nonatomic, readonly) float saldo;
+@property (strong, nonatomic) NSString *banco;
+
+
+- (BOOL) sacar : (float) valor;
+- (void) depositar : (float) valor;
+- (BOOL) transferir : (float) valor paraConta : (Conta*) c;
+
 @end

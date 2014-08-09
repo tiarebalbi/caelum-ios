@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "BancoViewController.h"
+#import "BradescoViewController.h"
 
 @implementation AppDelegate
 
@@ -20,11 +20,13 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+
     
-    BancoViewController *banco = [BancoViewController new];
+    BradescoViewController *banco = [BradescoViewController new];
     
     self.window.rootViewController = banco;
+    
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
