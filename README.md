@@ -5,8 +5,9 @@ O objetivo desse curso é torná-lo apto a desenvolver aplicativos para iOS, o s
 
 O foco é criar uma aplicação que faz uso de muitos componentes visuais, armazenamento de dados, passando por dicas de Xcode que é o IDE oficial da Apple para desenvolvimento. Ao final do curso, você irá compreender os fundamentos básicos da linguagem Objective-C, utilizada pelos frameworks de desenvolvimento para iOS.
 
+https://www.caelum.com.br/curso-ios-iphone-ipad/
 
-# Links:
+# Links Extra:
 
  - http://www.zucchiniframework.org/
  - http://www.imind.eu/mobile/2014/02/19/ios-integration-testing-on-ci/
