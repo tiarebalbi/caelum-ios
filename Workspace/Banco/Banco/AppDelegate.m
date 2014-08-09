@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "BancoViewController.h"
 
 @implementation AppDelegate
 
@@ -20,6 +21,11 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    BancoViewController *banco = [BancoViewController new];
+    
+    self.window.rootViewController = banco;
+    
     return YES;
 }
 

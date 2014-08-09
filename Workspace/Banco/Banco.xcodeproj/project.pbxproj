@@ -22,6 +22,9 @@
 		92E679051996587600E537B9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92E678E91996587600E537B9 /* CoreData.framework */; };
 		92E6790D1996587600E537B9 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92E6790B1996587600E537B9 /* InfoPlist.strings */; };
 		92E6790F1996587600E537B9 /* BancoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E6790E1996587600E537B9 /* BancoTests.m */; };
+		92E6791E1996591F00E537B9 /* BancoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E6791C1996591F00E537B9 /* BancoViewController.m */; };
+		92E6791F1996591F00E537B9 /* BancoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E6791D1996591F00E537B9 /* BancoViewController.xib */; };
+		92E6792719966ACB00E537B9 /* Conta.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E6792619966ACB00E537B9 /* Conta.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,11 @@
 		92E6790A1996587600E537B9 /* BancoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BancoTests-Info.plist"; sourceTree = "<group>"; };
 		92E6790C1996587600E537B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		92E6790E1996587600E537B9 /* BancoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BancoTests.m; sourceTree = "<group>"; };
+		92E6791B1996591F00E537B9 /* BancoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BancoViewController.h; sourceTree = SOURCE_ROOT; };
+		92E6791C1996591F00E537B9 /* BancoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BancoViewController.m; sourceTree = SOURCE_ROOT; };
+		92E6791D1996591F00E537B9 /* BancoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BancoViewController.xib; sourceTree = SOURCE_ROOT; };
+		92E6792519966ACB00E537B9 /* Conta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Conta.h; sourceTree = "<group>"; };
+		92E6792619966ACB00E537B9 /* Conta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Conta.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +123,9 @@
 		92E678EB1996587600E537B9 /* Banco */ = {
 			isa = PBXGroup;
 			children = (
+				92E6792419966AAE00E537B9 /* Domain */,
+				92E679221996598700E537B9 /* Model */,
+				92E679211996596C00E537B9 /* Controller */,
 				92E678F41996587600E537B9 /* AppDelegate.h */,
 				92E678F51996587600E537B9 /* AppDelegate.m */,
 				92E678FA1996587600E537B9 /* Images.xcassets */,
@@ -139,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				92E6790E1996587600E537B9 /* BancoTests.m */,
+				92E679201996596200E537B9 /* Controllers */,
 				92E679091996587600E537B9 /* Supporting Files */,
 			);
 			path = BancoTests;
@@ -151,6 +163,39 @@
 				92E6790B1996587600E537B9 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		92E679201996596200E537B9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		92E679211996596C00E537B9 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				92E6791B1996591F00E537B9 /* BancoViewController.h */,
+				92E6791C1996591F00E537B9 /* BancoViewController.m */,
+				92E6791D1996591F00E537B9 /* BancoViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		92E679221996598700E537B9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		92E6792419966AAE00E537B9 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				92E6792519966ACB00E537B9 /* Conta.h */,
+				92E6792619966ACB00E537B9 /* Conta.m */,
+			);
+			name = Domain;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,6 +245,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Tiarê Balbi";
 				TargetAttributes = {
+					92E678DF1996587600E537B9 = {
+						DevelopmentTeam = WNZAKM95XF;
+					};
 					92E678FF1996587600E537B9 = {
 						TestTargetID = 92E678DF1996587600E537B9;
 					};
@@ -230,6 +278,7 @@
 			files = (
 				92E678F01996587600E537B9 /* InfoPlist.strings in Resources */,
 				92E678FB1996587600E537B9 /* Images.xcassets in Resources */,
+				92E6791F1996591F00E537B9 /* BancoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +299,8 @@
 			files = (
 				92E678F61996587600E537B9 /* AppDelegate.m in Sources */,
 				92E678F91996587600E537B9 /* Banco.xcdatamodeld in Sources */,
+				92E6791E1996591F00E537B9 /* BancoViewController.m in Sources */,
+				92E6792719966ACB00E537B9 /* Conta.m in Sources */,
 				92E678F21996587600E537B9 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -367,6 +418,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Banco/Banco-Prefix.pch";
 				INFOPLIST_FILE = "Banco/Banco-Info.plist";
@@ -380,6 +432,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Banco/Banco-Prefix.pch";
 				INFOPLIST_FILE = "Banco/Banco-Info.plist";
