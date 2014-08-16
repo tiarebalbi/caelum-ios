@@ -1,0 +1,534 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DA160D681998594B0054800A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA160D671998594B0054800A /* Foundation.framework */; };
+		DA160D6A1998594B0054800A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA160D691998594B0054800A /* CoreGraphics.framework */; };
+		DA160D6C1998594B0054800A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA160D6B1998594B0054800A /* UIKit.framework */; };
+		DA160D6E1998594B0054800A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA160D6D1998594B0054800A /* CoreData.framework */; };
+		DA160D741998594B0054800A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA160D721998594B0054800A /* InfoPlist.strings */; };
+		DA160D761998594B0054800A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DA160D751998594B0054800A /* main.m */; };
+		DA160D7A1998594B0054800A /* TBBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DA160D791998594B0054800A /* TBBAppDelegate.m */; };
+		DA160D7D1998594B0054800A /* CalcCaelum.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA160D7B1998594B0054800A /* CalcCaelum.xcdatamodeld */; };
+		DA160D7F1998594B0054800A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA160D7E1998594B0054800A /* Images.xcassets */; };
+		DA160D861998594B0054800A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA160D851998594B0054800A /* XCTest.framework */; };
+		DA160D871998594B0054800A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA160D671998594B0054800A /* Foundation.framework */; };
+		DA160D881998594B0054800A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA160D6B1998594B0054800A /* UIKit.framework */; };
+		DA160D891998594B0054800A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA160D6D1998594B0054800A /* CoreData.framework */; };
+		DA160D911998594B0054800A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA160D8F1998594B0054800A /* InfoPlist.strings */; };
+		DA160D931998594B0054800A /* CalcCaelumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DA160D921998594B0054800A /* CalcCaelumTests.m */; };
+		DA160DA21998596A0054800A /* TBBMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA160DA01998596A0054800A /* TBBMainViewController.m */; };
+		DA160DA31998596A0054800A /* TBBMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA160DA11998596A0054800A /* TBBMainViewController.xib */; };
+		DA160DA719985B360054800A /* search.png in Resources */ = {isa = PBXBuildFile; fileRef = DA160DA519985B360054800A /* search.png */; };
+		DA160DA819985B360054800A /* search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA160DA619985B360054800A /* search@2x.png */; };
+		DA160DAB19985B490054800A /* menu.png in Resources */ = {isa = PBXBuildFile; fileRef = DA160DA919985B490054800A /* menu.png */; };
+		DA160DAC19985B490054800A /* menu@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DA160DAA19985B490054800A /* menu@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DA160D8A1998594B0054800A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DA160D5C1998594B0054800A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DA160D631998594B0054800A;
+			remoteInfo = CalcCaelum;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DA160D641998594B0054800A /* CalcCaelum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalcCaelum.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA160D671998594B0054800A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		DA160D691998594B0054800A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		DA160D6B1998594B0054800A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		DA160D6D1998594B0054800A /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		DA160D711998594B0054800A /* CalcCaelum-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CalcCaelum-Info.plist"; sourceTree = "<group>"; };
+		DA160D731998594B0054800A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DA160D751998594B0054800A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DA160D771998594B0054800A /* CalcCaelum-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CalcCaelum-Prefix.pch"; sourceTree = "<group>"; };
+		DA160D781998594B0054800A /* TBBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBBAppDelegate.h; sourceTree = "<group>"; };
+		DA160D791998594B0054800A /* TBBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TBBAppDelegate.m; sourceTree = "<group>"; };
+		DA160D7C1998594B0054800A /* CalcCaelum.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CalcCaelum.xcdatamodel; sourceTree = "<group>"; };
+		DA160D7E1998594B0054800A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		DA160D841998594B0054800A /* CalcCaelumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CalcCaelumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA160D851998594B0054800A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		DA160D8E1998594B0054800A /* CalcCaelumTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CalcCaelumTests-Info.plist"; sourceTree = "<group>"; };
+		DA160D901998594B0054800A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		DA160D921998594B0054800A /* CalcCaelumTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalcCaelumTests.m; sourceTree = "<group>"; };
+		DA160D9F1998596A0054800A /* TBBMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBBMainViewController.h; sourceTree = "<group>"; };
+		DA160DA01998596A0054800A /* TBBMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBBMainViewController.m; sourceTree = "<group>"; };
+		DA160DA11998596A0054800A /* TBBMainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TBBMainViewController.xib; sourceTree = "<group>"; };
+		DA160DA519985B360054800A /* search.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = search.png; sourceTree = "<group>"; };
+		DA160DA619985B360054800A /* search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "search@2x.png"; sourceTree = "<group>"; };
+		DA160DA919985B490054800A /* menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menu.png; sourceTree = "<group>"; };
+		DA160DAA19985B490054800A /* menu@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DA160D611998594B0054800A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA160D6A1998594B0054800A /* CoreGraphics.framework in Frameworks */,
+				DA160D6E1998594B0054800A /* CoreData.framework in Frameworks */,
+				DA160D6C1998594B0054800A /* UIKit.framework in Frameworks */,
+				DA160D681998594B0054800A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA160D811998594B0054800A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA160D861998594B0054800A /* XCTest.framework in Frameworks */,
+				DA160D891998594B0054800A /* CoreData.framework in Frameworks */,
+				DA160D881998594B0054800A /* UIKit.framework in Frameworks */,
+				DA160D871998594B0054800A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DA160D5B1998594B0054800A = {
+			isa = PBXGroup;
+			children = (
+				DA160D6F1998594B0054800A /* CalcCaelum */,
+				DA160D8C1998594B0054800A /* CalcCaelumTests */,
+				DA160D661998594B0054800A /* Frameworks */,
+				DA160D651998594B0054800A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DA160D651998594B0054800A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DA160D641998594B0054800A /* CalcCaelum.app */,
+				DA160D841998594B0054800A /* CalcCaelumTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DA160D661998594B0054800A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DA160D671998594B0054800A /* Foundation.framework */,
+				DA160D691998594B0054800A /* CoreGraphics.framework */,
+				DA160D6B1998594B0054800A /* UIKit.framework */,
+				DA160D6D1998594B0054800A /* CoreData.framework */,
+				DA160D851998594B0054800A /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA160D6F1998594B0054800A /* CalcCaelum */ = {
+			isa = PBXGroup;
+			children = (
+				DA160DA419985B210054800A /* Resources */,
+				DA160D9D199859590054800A /* Domain */,
+				DA160D9C199859540054800A /* Controller */,
+				DA160D781998594B0054800A /* TBBAppDelegate.h */,
+				DA160D791998594B0054800A /* TBBAppDelegate.m */,
+				DA160D7E1998594B0054800A /* Images.xcassets */,
+				DA160D7B1998594B0054800A /* CalcCaelum.xcdatamodeld */,
+				DA160D701998594B0054800A /* Supporting Files */,
+			);
+			path = CalcCaelum;
+			sourceTree = "<group>";
+		};
+		DA160D701998594B0054800A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA160D711998594B0054800A /* CalcCaelum-Info.plist */,
+				DA160D721998594B0054800A /* InfoPlist.strings */,
+				DA160D751998594B0054800A /* main.m */,
+				DA160D771998594B0054800A /* CalcCaelum-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA160D8C1998594B0054800A /* CalcCaelumTests */ = {
+			isa = PBXGroup;
+			children = (
+				DA160D921998594B0054800A /* CalcCaelumTests.m */,
+				DA160D8D1998594B0054800A /* Supporting Files */,
+			);
+			path = CalcCaelumTests;
+			sourceTree = "<group>";
+		};
+		DA160D8D1998594B0054800A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DA160D8E1998594B0054800A /* CalcCaelumTests-Info.plist */,
+				DA160D8F1998594B0054800A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DA160D9C199859540054800A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DA160D9F1998596A0054800A /* TBBMainViewController.h */,
+				DA160DA01998596A0054800A /* TBBMainViewController.m */,
+				DA160DA11998596A0054800A /* TBBMainViewController.xib */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		DA160D9D199859590054800A /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				DA160D9E1998595B0054800A /* Entity */,
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
+		DA160D9E1998595B0054800A /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Entity;
+			sourceTree = "<group>";
+		};
+		DA160DA419985B210054800A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DA160DA919985B490054800A /* menu.png */,
+				DA160DAA19985B490054800A /* menu@2x.png */,
+				DA160DA519985B360054800A /* search.png */,
+				DA160DA619985B360054800A /* search@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DA160D631998594B0054800A /* CalcCaelum */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA160D961998594B0054800A /* Build configuration list for PBXNativeTarget "CalcCaelum" */;
+			buildPhases = (
+				DA160D601998594B0054800A /* Sources */,
+				DA160D611998594B0054800A /* Frameworks */,
+				DA160D621998594B0054800A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CalcCaelum;
+			productName = CalcCaelum;
+			productReference = DA160D641998594B0054800A /* CalcCaelum.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DA160D831998594B0054800A /* CalcCaelumTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DA160D991998594B0054800A /* Build configuration list for PBXNativeTarget "CalcCaelumTests" */;
+			buildPhases = (
+				DA160D801998594B0054800A /* Sources */,
+				DA160D811998594B0054800A /* Frameworks */,
+				DA160D821998594B0054800A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DA160D8B1998594B0054800A /* PBXTargetDependency */,
+			);
+			name = CalcCaelumTests;
+			productName = CalcCaelumTests;
+			productReference = DA160D841998594B0054800A /* CalcCaelumTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DA160D5C1998594B0054800A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = TBB;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Tiarê Balbi";
+				TargetAttributes = {
+					DA160D831998594B0054800A = {
+						TestTargetID = DA160D631998594B0054800A;
+					};
+				};
+			};
+			buildConfigurationList = DA160D5F1998594B0054800A /* Build configuration list for PBXProject "CalcCaelum" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DA160D5B1998594B0054800A;
+			productRefGroup = DA160D651998594B0054800A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DA160D631998594B0054800A /* CalcCaelum */,
+				DA160D831998594B0054800A /* CalcCaelumTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DA160D621998594B0054800A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA160DA31998596A0054800A /* TBBMainViewController.xib in Resources */,
+				DA160DAC19985B490054800A /* menu@2x.png in Resources */,
+				DA160D741998594B0054800A /* InfoPlist.strings in Resources */,
+				DA160DAB19985B490054800A /* menu.png in Resources */,
+				DA160D7F1998594B0054800A /* Images.xcassets in Resources */,
+				DA160DA819985B360054800A /* search@2x.png in Resources */,
+				DA160DA719985B360054800A /* search.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA160D821998594B0054800A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA160D911998594B0054800A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DA160D601998594B0054800A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA160D7D1998594B0054800A /* CalcCaelum.xcdatamodeld in Sources */,
+				DA160D761998594B0054800A /* main.m in Sources */,
+				DA160DA21998596A0054800A /* TBBMainViewController.m in Sources */,
+				DA160D7A1998594B0054800A /* TBBAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DA160D801998594B0054800A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DA160D931998594B0054800A /* CalcCaelumTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DA160D8B1998594B0054800A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DA160D631998594B0054800A /* CalcCaelum */;
+			targetProxy = DA160D8A1998594B0054800A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DA160D721998594B0054800A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA160D731998594B0054800A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		DA160D8F1998594B0054800A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA160D901998594B0054800A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DA160D941998594B0054800A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DA160D951998594B0054800A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DA160D971998594B0054800A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CalcCaelum/CalcCaelum-Prefix.pch";
+				INFOPLIST_FILE = "CalcCaelum/CalcCaelum-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		DA160D981998594B0054800A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CalcCaelum/CalcCaelum-Prefix.pch";
+				INFOPLIST_FILE = "CalcCaelum/CalcCaelum-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		DA160D9A1998594B0054800A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CalcCaelum.app/CalcCaelum";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CalcCaelum/CalcCaelum-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "CalcCaelumTests/CalcCaelumTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		DA160D9B1998594B0054800A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/CalcCaelum.app/CalcCaelum";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "CalcCaelum/CalcCaelum-Prefix.pch";
+				INFOPLIST_FILE = "CalcCaelumTests/CalcCaelumTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DA160D5F1998594B0054800A /* Build configuration list for PBXProject "CalcCaelum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA160D941998594B0054800A /* Debug */,
+				DA160D951998594B0054800A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DA160D961998594B0054800A /* Build configuration list for PBXNativeTarget "CalcCaelum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA160D971998594B0054800A /* Debug */,
+				DA160D981998594B0054800A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DA160D991998594B0054800A /* Build configuration list for PBXNativeTarget "CalcCaelumTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DA160D9A1998594B0054800A /* Debug */,
+				DA160D9B1998594B0054800A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DA160D7B1998594B0054800A /* CalcCaelum.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DA160D7C1998594B0054800A /* CalcCaelum.xcdatamodel */,
+			);
+			currentVersion = DA160D7C1998594B0054800A /* CalcCaelum.xcdatamodel */;
+			path = CalcCaelum.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = DA160D5C1998594B0054800A /* Project object */;
+}
