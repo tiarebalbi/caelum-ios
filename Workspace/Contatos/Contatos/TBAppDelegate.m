@@ -7,7 +7,7 @@
 //
 
 #import "TBAppDelegate.h"
-#import "TBFormularioViewController.h"
+#import "TBListaContatosViewController.h"
 
 @implementation TBAppDelegate
 
@@ -21,8 +21,13 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     
-    TBFormularioViewController *controllerInicial = [TBFormularioViewController new];
-    self.window.rootViewController = controllerInicial;
+    self.contatos = [[NSMutableArray alloc] init];
+    
+    TBListaContatosViewController *controllerInicial = [TBListaContatosViewController new];
+    controllerInicial.contatos = self.contatos;
+    
+    UINavigationController *barrinha = [[UINavigationController alloc] initWithRootViewController:controllerInicial ];
+    self.window.rootViewController = barrinha;
     
     [self.window makeKeyAndVisible];
     return YES;

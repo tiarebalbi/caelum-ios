@@ -10,5 +10,14 @@
 
 @implementation TBContato
 
+- (TBContato *) init
+{
+    if(self = [super init]) {
+        // Construtor... Exemplo
+//        self.nome = @"Tiarê Balbi Bonamini";
+    }
+    
+    return self;
+}
 
 @end

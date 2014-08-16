@@ -506,6 +506,7 @@
 				DA160D981998594B0054800A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DA160D991998594B0054800A /* Build configuration list for PBXNativeTarget "CalcCaelumTests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +515,7 @@
 				DA160D9B1998594B0054800A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

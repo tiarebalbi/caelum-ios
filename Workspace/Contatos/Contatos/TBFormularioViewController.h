@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface TBFormularioViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UITextField *nome;
@@ -19,8 +20,5 @@
 
 @property (strong, nonatomic) NSArray *campos;
 @property (strong, nonatomic) NSMutableArray *contatos;
-
-- (IBAction)cadastrar:(UIButton *)sender;
-
 
 @end
