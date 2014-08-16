@@ -112,6 +112,7 @@
 		92E453ED199FF1DF00967F1E /* TesteApp2 */ = {
 			isa = PBXGroup;
 			children = (
+				92E4541C199FF1E400967F1E /* Import */,
 				92E453F6199FF1DF00967F1E /* TBAppDelegate.h */,
 				92E453F7199FF1DF00967F1E /* TBAppDelegate.m */,
 				92E453F9199FF1DF00967F1E /* Main.storyboard */,
@@ -150,6 +151,13 @@
 				92E4540F199FF1E000967F1E /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		92E4541C199FF1E400967F1E /* Import */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Import;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
