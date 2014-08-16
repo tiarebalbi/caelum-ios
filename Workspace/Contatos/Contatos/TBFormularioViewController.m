@@ -29,8 +29,30 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
                                                                                   style:UIBarButtonItemStylePlain
                                                                                  target:self
                                                                                  action:@selector(cadastrar)];
-        
     }
+    return self;
+}
+
+-(void) fecharModal
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (id) initWithContato: (TBContato *) contato
+{
+    if(self = [super init]) {
+        self.selecionado = contato;
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancelar"
+                                                                                 style:UIBarButtonItemStylePlain
+                                                                                target:self
+                                                                                action:@selector(fecharModal)];
+        
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Atualizar"
+                                                                                  style:UIBarButtonItemStylePlain
+                                                                                 target:self
+                                                                                 action:@selector(atualizar)];
+    }
+    
     return self;
 }
 
@@ -43,6 +65,14 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     self.telefone.keyboardType = UIKeyboardTypeNumberPad;
     self.email.keyboardType = UIKeyboardTypeEmailAddress;
     self.site.keyboardType = UIKeyboardTypeURL;
+    
+    if(self.selecionado)   {
+        self.nome.text = self.selecionado.nome;
+        self.email.text = self.selecionado.email;
+        self.site.text = self.selecionado.site;
+        self.endereco.text = self.selecionado.endereco;
+        self.telefone.text = self.selecionado.telefone;
+    }
     
 }
 
@@ -71,29 +101,40 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 
 
--(TBContato *) cadastrar {
+- (void) pegaDadosDoFormEColocaNo: (TBContato *) c
+{
+    c = [[TBContato alloc] initWithName:self.nome.text
+                                                   email:self.email.text
+                                                telefone:self.telefone.text
+                                                endereco:self.endereco.text
+                                                    site:self.site.text];
+    
+}
+
+-(void) atualizar
+{
+    [self pegaDadosDoFormEColocaNo:self.selecionado];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    NSLog(@"Atualizando o registro");
+    NSLog(@"Nome: %@", self.selecionado.nome);
+    NSLog(@"Dados do Contato: %@ [%@] | Total de Registro: %i", self.selecionado.nome, self.selecionado.email, [self.contatos count]);
+}
+
+-(void) cadastrar {
+    
     TBContato *contato = [TBContato new];
     
-    // Testando o valor do contrutor TBContato, onde é inserido o nome nele.
-    contato.nome = self.nome.text;
-    contato.email = self.email.text;
-    contato.telefone = self.telefone.text;
-    contato.endereco = self.endereco.text;
-    contato.site = self.site.text;
+    [self pegaDadosDoFormEColocaNo:contato];
     
     [self.contatos addObject:contato];
     [self.view endEditing:YES];
+    
+    NSLog(@"Salvando o registro");
     NSLog(@"Nome: %@", contato.nome);
     NSLog(@"Dados do Contato: %@ [%@] | Total de Registro: %i", contato.nome, contato.email, [self.contatos count]);
     
     // Volta a view utilizando o modelo de transição
     [self.navigationController popViewControllerAnimated:YES];
     
-    // Fecha o modal
-//    [self.navigationController dismissViewControllerAnimated:YES
-//                                                  completion:nil];
-    
-    
-    return contato;
 }
 @end

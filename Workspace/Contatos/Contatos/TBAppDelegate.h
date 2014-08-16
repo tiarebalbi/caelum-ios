@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+@property (strong, nonatomic) NSString *arquivoContatos;
+
 @property (strong, nonatomic) NSMutableArray *contatos;
 
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

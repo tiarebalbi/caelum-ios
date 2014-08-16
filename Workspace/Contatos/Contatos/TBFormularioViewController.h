@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "TBContato.h"
 
 @interface TBFormularioViewController : UIViewController
 
@@ -20,5 +20,9 @@
 
 @property (strong, nonatomic) NSArray *campos;
 @property (strong, nonatomic) NSMutableArray *contatos;
+
+@property (strong, nonatomic) TBContato *selecionado;
+
+- (id) initWithContato: (TBContato *) contato;
 
 @end

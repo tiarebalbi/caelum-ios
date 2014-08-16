@@ -23,6 +23,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     if(self = [super init]) {
         self.title = @"Contatos";
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target:self action:@selector(addContato)];
+        self.navigationItem.leftBarButtonItem = self.editButtonItem;
     }
     
     return self;
@@ -33,6 +34,27 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     return 1;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.contatos removeObjectAtIndex:indexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TBContato *contato = self.contatos[indexPath.row];
+    
+    TBFormularioViewController *formVC = [[TBFormularioViewController alloc] initWithContato: contato];
+//    [self.navigationController pushViewController:formVC animated:YES];
+    
+    UINavigationController *barrinha = [[UINavigationController alloc] initWithRootViewController:formVC];
+    [self presentViewController:barrinha animated:YES completion:nil];
+    
+}
+
+// Lembrar caso seja possível apresentar custom table cell row
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     int quantidade = [self.contatos count];
@@ -47,11 +69,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier: apelido];
     
     if(!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier: apelido ];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: apelido ];
     }
     
     TBContato *linha = self.contatos[path.row];
     cell.textLabel.text = linha.nome;
+    cell.detailTextLabel.text = linha.email;
     return cell;
 }
 
@@ -89,7 +112,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     if (self.refreshControl) {
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"MMM d, h:mm a"];
+        [formatter setDateFormat:@"dd/MM/yyyy, HH:mm"];
         NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
         NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
                                                                     forKey:NSForegroundColorAttributeName];

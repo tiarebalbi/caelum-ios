@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TBContato : NSObject
+@interface TBContato : NSObject<NSCoding>
 
 @property NSString *nome;
 @property NSString *telefone;
 @property NSString *email;
 @property NSString *endereco;
 @property NSString *site;
+
+- (id) initWithName : (NSString *) nome email:(NSString *) email telefone:(NSString *)telefone endereco:(NSString *) endereco site: (NSString *)site;
 
 @end

@@ -20,8 +20,17 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
-    
-    self.contatos = [[NSMutableArray alloc] init];
+   
+    // Verificando o local de armazenamento de arquivos no dispositivo.
+    NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *dirAtual = dirs[0];
+    self.arquivoContatos = [NSString stringWithFormat:@"%@/ArquivoContatos", dirAtual];
+
+    _contatos = [NSKeyedUnarchiver unarchiveObjectWithFile:self.arquivoContatos];
+    NSLog(@"Path: %@, Total de Registro: %i || dados: %@", _arquivoContatos, [_contatos count], [NSKeyedUnarchiver unarchiveObjectWithFile:self.arquivoContatos]);
+    if(!_contatos) {
+        self.contatos = [NSMutableArray new];
+    }
     
     TBListaContatosViewController *controllerInicial = [TBListaContatosViewController new];
     controllerInicial.contatos = self.contatos;
@@ -41,8 +50,7 @@
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [self serializarDados];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -59,6 +67,12 @@
 {
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
+    [self serializarDados];
+}
+
+- (void) serializarDados
+{
+    [NSKeyedArchiver archiveRootObject:self.contatos toFile:_arquivoContatos];
 }
 
 - (void)saveContext
