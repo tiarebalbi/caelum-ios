@@ -103,11 +103,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 - (void) pegaDadosDoFormEColocaNo: (TBContato *) c
 {
-    c = [[TBContato alloc] initWithName:self.nome.text
-                                                   email:self.email.text
-                                                telefone:self.telefone.text
-                                                endereco:self.endereco.text
-                                                    site:self.site.text];
+    c.nome = self.nome.text;
+    c.email = self.email.text;
+    c.telefone = self.telefone.text;
+    c.endereco = self.endereco.text;
+    c.site = self.site.text;
     
 }
 
