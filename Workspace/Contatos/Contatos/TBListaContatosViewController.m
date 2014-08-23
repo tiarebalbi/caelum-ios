@@ -25,6 +25,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         self.title = @"Contatos";
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target:self action:@selector(addContato)];
         self.navigationItem.leftBarButtonItem = self.editButtonItem;
+        
+        self.actionControl = [[TBDefaultActionControl alloc] initWithView:self];
     }
     
     return self;
@@ -80,20 +82,46 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     return cell;
 }
 
+- (void) exibirAcoes: (UIGestureRecognizer *) orelha
+{
+    if(orelha.state == UIGestureRecognizerStateBegan) {
+        CGPoint p = [orelha locationInView:self.tableView];
+        NSIndexPath *l = [self.tableView indexPathForRowAtPoint:p];
+        
+        TBContato *contato = self.contatos[l.row];
+        self.contatoSelecionado = contato;
+        self.actionControl.contato = contato;
+        
+        UIActionSheet *opcoes = [[UIActionSheet alloc] initWithTitle: [NSString stringWithFormat:@"Contato: %@", contato.nome]
+                                                            delegate:self.actionControl
+                                                   cancelButtonTitle:@"Cancelar"
+                                              destructiveButtonTitle: @"Excluir ?" // Botão em destaque
+                                                   otherButtonTitles:@"Ligar",@"Enviar E-Mail", @"Visualizar site", @"Abrir Mapa", nil];
+        
+        [opcoes showInView:self.view];
+
+    }
+
+}
 
 -(void) viewDidLoad
 {
     self.navigationController.navigationBar.translucent = NO;
-    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x1C344D)];
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x142A3E)];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil]];
     
+    // Registro da cell customizada
     [self.tableView registerNib:[UINib nibWithNibName:@"TBMinhaLinhaTableViewCell" bundle:nil] forCellReuseIdentifier:@"maroto"];
+    
+    // Evento de gesto
+    UILongPressGestureRecognizer *orelha = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(exibirAcoes:)];
+    [self.tableView addGestureRecognizer:orelha];
     
     // Pull Request Refresh
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = UIColorFromRGB(0x287D7D);
+    self.refreshControl.backgroundColor = UIColorFromRGB(0x3D7DCB);
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self
                             action:@selector(reloadData)

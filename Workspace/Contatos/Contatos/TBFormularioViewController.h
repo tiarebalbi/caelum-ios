@@ -11,14 +11,15 @@
 #import "TBListaContatosViewController.h"
 #import "TBListaContatoDelegate.h"
 
-@interface TBFormularioViewController : UIViewController
+@interface TBFormularioViewController : UIViewController<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *nome;
 @property (weak, nonatomic) IBOutlet UITextField *telefone;
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *endereco;
 @property (weak, nonatomic) IBOutlet UITextField *site;
-@property (weak, nonatomic) IBOutlet UILabel *welcome;
+
+@property (weak, nonatomic) IBOutlet UIButton *foto;
 
 @property (strong, nonatomic) NSArray *campos;
 

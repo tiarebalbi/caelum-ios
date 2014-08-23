@@ -9,10 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "TBContato.h"
 #import "TBListaContatoDelegate.h"
+#import "TBDefaultActionControl.h"
 
 @interface TBListaContatosViewController : UITableViewController <TBListaContatoDelegate>
 
 @property (strong, nonatomic) NSMutableArray *contatos;
+@property (strong, nonatomic) TBContato *contatoSelecionado;
+
+@property (strong, nonatomic) TBDefaultActionControl *actionControl;
+
+
 @property NSNumber *linhaDestaque;
 
 - (void) contatoAdicionado :(TBContato *) contato;

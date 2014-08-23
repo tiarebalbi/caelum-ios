@@ -96,9 +96,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     }
 
 }
-- (IBAction)trocando:(UITextField *)sender {
-    self.welcome.text = [NSString stringWithFormat: @"Bem Vindo, %@",sender.text];
-}
 
 - (void)didReceiveMemoryWarning
 {
@@ -138,4 +135,33 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     [self.navigationController popViewControllerAnimated:YES];
     
 }
+
+- (IBAction)selecionarImagem:(id)sender
+{
+    UIImagePickerController *picker = [[UIImagePickerController alloc] init];
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        NSLog(@"Camera");
+        picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+        
+    } else {
+        NSLog(@"PhotoLibrary");
+        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    picker.delegate = self;
+    picker.allowsEditing = YES;
+    
+    [self presentViewController:picker animated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *imagemSelecionada = [info valueForKey: UIImagePickerControllerEditedImage];
+    [self.foto setImage:imagemSelecionada forState:UIControlStateNormal];
+    [picker dismissViewControllerAnimated:true completion:nil];
+}
+
+
+
 @end
