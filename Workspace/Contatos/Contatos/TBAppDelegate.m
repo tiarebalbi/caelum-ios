@@ -27,7 +27,9 @@
     self.arquivoContatos = [NSString stringWithFormat:@"%@/ArquivoContatos", dirAtual];
 
     _contatos = [NSKeyedUnarchiver unarchiveObjectWithFile:self.arquivoContatos];
-    NSLog(@"Path: %@, Total de Registro: %i || dados: %@", _arquivoContatos, [_contatos count], [NSKeyedUnarchiver unarchiveObjectWithFile:self.arquivoContatos]);
+    [NSKeyedUnarchiver unarchiveObjectWithFile:self.arquivoContatos];
+    
+    NSLog(@"Path: %@, Total de Registro: %ld || dados: %@", _arquivoContatos, [_contatos count], [NSKeyedUnarchiver unarchiveObjectWithFile:self.arquivoContatos]);
     if(!_contatos) {
         self.contatos = [NSMutableArray new];
     }

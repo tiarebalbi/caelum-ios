@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "TBContato.h"
+#import "TBListaContatosViewController.h"
+#import "TBListaContatoDelegate.h"
 
 @interface TBFormularioViewController : UIViewController
 
@@ -19,7 +21,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *welcome;
 
 @property (strong, nonatomic) NSArray *campos;
-@property (strong, nonatomic) NSMutableArray *contatos;
+
+@property (weak, nonatomic) id <TBListaContatoDelegate> delegate;
 
 @property (strong, nonatomic) TBContato *selecionado;
 

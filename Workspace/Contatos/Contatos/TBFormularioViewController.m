@@ -66,6 +66,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     self.email.keyboardType = UIKeyboardTypeEmailAddress;
     self.site.keyboardType = UIKeyboardTypeURL;
     
+    
+    //UIButton *botao = [[UIButton alloc] initWithFrame:CGRectMake(50, 50, 50, 15)];
+    //botao.backgroundColor = [UIColor redColor];
+    //[self.view addSubview:botao];
+    
     if(self.selecionado)   {
         self.nome.text = self.selecionado.nome;
         self.email.text = self.selecionado.email;
@@ -82,7 +87,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 
 - (IBAction)change:(UITextField *)sender {
-    int posicao = [self.campos indexOfObject:sender];
+    long posicao = [self.campos indexOfObject:sender];
     if(posicao == [self.campos count] -1) {
         [self.view endEditing:true];
     }else if(posicao < [self.campos count] -1) {
@@ -112,12 +117,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 }
 
 -(void) atualizar
-{
+{ 
     [self pegaDadosDoFormEColocaNo:self.selecionado];
+    [_delegate contatoAtualizado:self.selecionado];
+    
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    NSLog(@"Atualizando o registro");
-    NSLog(@"Nome: %@", self.selecionado.nome);
-    NSLog(@"Dados do Contato: %@ [%@] | Total de Registro: %i", self.selecionado.nome, self.selecionado.email, [self.contatos count]);
+
 }
 
 -(void) cadastrar {
@@ -125,13 +130,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     TBContato *contato = [TBContato new];
     
     [self pegaDadosDoFormEColocaNo:contato];
+    [_delegate contatoAdicionado:contato];
     
-    [self.contatos addObject:contato];
     [self.view endEditing:YES];
-    
-    NSLog(@"Salvando o registro");
-    NSLog(@"Nome: %@", contato.nome);
-    NSLog(@"Dados do Contato: %@ [%@] | Total de Registro: %i", contato.nome, contato.email, [self.contatos count]);
     
     // Volta a view utilizando o modelo de transição
     [self.navigationController popViewControllerAnimated:YES];

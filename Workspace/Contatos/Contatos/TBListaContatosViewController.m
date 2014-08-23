@@ -10,6 +10,7 @@
 #import "TBFormularioViewController.h"
 #import "TBAppDelegate.h"
 #import "TBContato.h"
+#import "TBMinhaLinhaTableViewCell.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -47,7 +48,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     TBContato *contato = self.contatos[indexPath.row];
     
     TBFormularioViewController *formVC = [[TBFormularioViewController alloc] initWithContato: contato];
-//    [self.navigationController pushViewController:formVC animated:YES];
+    formVC.delegate = self;
     
     UINavigationController *barrinha = [[UINavigationController alloc] initWithRootViewController:formVC];
     [self presentViewController:barrinha animated:YES completion:nil];
@@ -57,19 +58,20 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 // Lembrar caso seja possível apresentar custom table cell row
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    int quantidade = [self.contatos count];
+    long quantidade = [self.contatos count];
     return quantidade;
 }
 
 - (UITableViewCell *) tableView : (UITableView *) table cellForRowAtIndexPath:(NSIndexPath *)path
 {
     
-    static NSString *apelido = @"Maroto";
+    static NSString *apelido = @"maroto";
     
     UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier: apelido];
     
     if(!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: apelido ];
+        // cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: apelido ];
+        cell = [[TBMinhaLinhaTableViewCell alloc]  initWithStyle:UITableViewCellStyleDefault reuseIdentifier:apelido];
     }
     
     TBContato *linha = self.contatos[path.row];
@@ -82,14 +84,16 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 -(void) viewDidLoad
 {
     self.navigationController.navigationBar.translucent = NO;
-    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x0A1D29)];
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x1C344D)];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil]];
     
+    [self.tableView registerNib:[UINib nibWithNibName:@"TBMinhaLinhaTableViewCell" bundle:nil] forCellReuseIdentifier:@"maroto"];
+    
     // Pull Request Refresh
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = UIColorFromRGB(0x43858E);
+    self.refreshControl.backgroundColor = UIColorFromRGB(0x287D7D);
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self
                             action:@selector(reloadData)
@@ -126,17 +130,39 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 - (void) viewWillAppear:(BOOL)animated
 {
     [self.tableView reloadData];
+    if(self.linhaDestaque && [self.contatos count] > 0) {
+        NSIndexPath *path = [NSIndexPath indexPathForRow:[self.linhaDestaque intValue] inSection:0];
+        [self.tableView selectRowAtIndexPath:path animated:true scrollPosition:UITableViewScrollPositionNone];
+        [self.tableView scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionNone animated:true];
+        
+        self.linhaDestaque = nil;
+    }
+
+}
+
+- (void) contatoAdicionado:(TBContato *)contato
+{
+    [self.contatos addObject:contato];
+    
+    long linha = [self.contatos indexOfObject:contato];
+    self.linhaDestaque = [NSNumber numberWithLong:linha];
+    
+    NSLog(@"Contato Adicionado: %ld", linha);
+}
+
+- (void) contatoAtualizado:(TBContato *)contato
+{
+    long linha = [self.contatos indexOfObject:contato];
+    self.linhaDestaque = [NSNumber numberWithLong:linha];
+    
+    NSLog(@"Contato Atualizado: %ld", linha);
 }
 
 - (void) addContato
 {
     TBFormularioViewController *formVC = [[TBFormularioViewController alloc] init];
-    formVC.contatos = self.contatos;
+    formVC.delegate = self;
     [self.navigationController pushViewController:formVC animated:YES];
-    
-    
-//    UINavigationController *barrinha = [[UINavigationController alloc] initWithRootViewController:formVC];
-//    [self presentViewController:barrinha animated:YES completion:nil];
 }
 
 @end

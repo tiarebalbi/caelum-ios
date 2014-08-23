@@ -7,9 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TBContato.h"
+#import "TBListaContatoDelegate.h"
 
-@interface TBListaContatosViewController : UITableViewController
+@interface TBListaContatosViewController : UITableViewController <TBListaContatoDelegate>
 
 @property (strong, nonatomic) NSMutableArray *contatos;
+@property NSNumber *linhaDestaque;
+
+- (void) contatoAdicionado :(TBContato *) contato;
+- (void) contatoAtualizado :(TBContato *) contato;
 
 @end
