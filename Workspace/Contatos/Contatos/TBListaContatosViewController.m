@@ -11,6 +11,7 @@
 #import "TBAppDelegate.h"
 #import "TBContato.h"
 #import "TBMinhaLinhaTableViewCell.h"
+#import "TBMapaViewController.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -26,7 +27,13 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target:self action:@selector(addContato)];
         self.navigationItem.leftBarButtonItem = self.editButtonItem;
         
+        UITabBarItem *tabItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:0 ];
+        tabItem.title = @"Contatos";
+        self.tabBarItem = tabItem;
+        
         self.actionControl = [[TBDefaultActionControl alloc] initWithView:self];
+        self.tableView.rowHeight = 60;
+
     }
     
     return self;
@@ -69,7 +76,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     static NSString *apelido = @"maroto";
     
-    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier: apelido];
+    TBMinhaLinhaTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier: apelido];
     
     if(!cell) {
         // cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier: apelido ];
@@ -77,8 +84,14 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     }
     
     TBContato *linha = self.contatos[path.row];
-    cell.textLabel.text = linha.nome;
-    cell.detailTextLabel.text = linha.email;
+    cell.nomeLabel.text = linha.nome;
+    cell.emailLabel.text = linha.email;
+    
+    if(linha.imagem) {
+        cell.imageView.image = linha.imagem;
+    } else {
+        cell.imageView.image = [UIImage imageNamed:@"Avatar"];
+    }
     return cell;
 }
 
@@ -104,13 +117,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 }
 
+
+
 -(void) viewDidLoad
 {
-    self.navigationController.navigationBar.translucent = NO;
-    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x142A3E)];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil]];
     
     // Registro da cell customizada
     [self.tableView registerNib:[UINib nibWithNibName:@"TBMinhaLinhaTableViewCell" bundle:nil] forCellReuseIdentifier:@"maroto"];
@@ -121,12 +131,15 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     // Pull Request Refresh
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = UIColorFromRGB(0x3D7DCB);
+    self.refreshControl.backgroundColor = UIColorFromRGB(0x207E9A);
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self
                             action:@selector(reloadData)
                   forControlEvents:UIControlEventValueChanged];
 
+    // Mapa View Controller
+    // TBMapaViewController *mapa = self.tabBarController.viewControllers[1];
+    // [mapa addFavorito];
     
     // Exemplo de como acessar o AppDelegate de qualquer parte da aplicação
 //    UIApplication *boss = [UIApplication sharedApplication];
@@ -145,7 +158,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         
         NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
         [formatter setDateFormat:@"dd/MM/yyyy, HH:mm"];
-        NSString *title = [NSString stringWithFormat:@"Last update: %@", [formatter stringFromDate:[NSDate date]]];
+        NSString *title = [NSString stringWithFormat:@"Última Atualização: %@", [formatter stringFromDate:[NSDate date]]];
         NSDictionary *attrsDictionary = [NSDictionary dictionaryWithObject:[UIColor whiteColor]
                                                                     forKey:NSForegroundColorAttributeName];
         NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:attrsDictionary];
@@ -157,12 +170,15 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 - (void) viewWillAppear:(BOOL)animated
 {
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotificationName:@"mapa:favoritos" object:nil];
+    
     [self.tableView reloadData];
     if(self.linhaDestaque && [self.contatos count] > 0) {
         NSIndexPath *path = [NSIndexPath indexPathForRow:[self.linhaDestaque intValue] inSection:0];
+        
         [self.tableView selectRowAtIndexPath:path animated:true scrollPosition:UITableViewScrollPositionNone];
         [self.tableView scrollToRowAtIndexPath:path atScrollPosition:UITableViewScrollPositionNone animated:true];
-        
         self.linhaDestaque = nil;
     }
 
@@ -176,6 +192,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     self.linhaDestaque = [NSNumber numberWithLong:linha];
     
     NSLog(@"Contato Adicionado: %ld", linha);
+}
+
+-(UIStatusBarStyle)preferredStatusBarStyle
+{
+    return UIStatusBarStyleLightContent;
 }
 
 - (void) contatoAtualizado:(TBContato *)contato

@@ -14,6 +14,12 @@
 		923C164619A913F800D33905 /* UIDevice+Phone.m in Sources */ = {isa = PBXBuildFile; fileRef = 923C164519A913F800D33905 /* UIDevice+Phone.m */; };
 		923C164819A9169000D33905 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 923C164719A9168F00D33905 /* MessageUI.framework */; };
 		923C164B19A919A200D33905 /* TBMailServiceControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 923C164A19A919A200D33905 /* TBMailServiceControl.m */; };
+		9265594419B2186B00BFCBDB /* Vila Mariana.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 9265594319B2186B00BFCBDB /* Vila Mariana.gpx */; };
+		9265594719B2294F00BFCBDB /* TBMeuLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9265594619B2294F00BFCBDB /* TBMeuLabel.m */; };
+		9265594C19B248C100BFCBDB /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9265594919B248C100BFCBDB /* TPKeyboardAvoidingScrollView.m */; };
+		9265594D19B248C100BFCBDB /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 9265594B19B248C100BFCBDB /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		9265595219B24CD500BFCBDB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9265595119B24CD500BFCBDB /* CoreLocation.framework */; };
+		9265595419B254B800BFCBDB /* 3.gif in Resources */ = {isa = PBXBuildFile; fileRef = 9265595319B254B800BFCBDB /* 3.gif */; };
 		926C12BD19A8D71A00350F83 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 926C12BC19A8D71A00350F83 /* icon.png */; };
 		926C12C119A8E3D600350F83 /* TBMinhaLinhaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926C12BF19A8E3D600350F83 /* TBMinhaLinhaTableViewCell.m */; };
 		926C12C219A8E3D600350F83 /* TBMinhaLinhaTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926C12C019A8E3D600350F83 /* TBMinhaLinhaTableViewCell.xib */; };
@@ -39,6 +45,9 @@
 		92E6797519969CB000E537B9 /* TBFormularioViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92E6797319969CB000E537B9 /* TBFormularioViewController.xib */; };
 		92E6797A1996A7C700E537B9 /* TBContato.m in Sources */ = {isa = PBXBuildFile; fileRef = 92E679791996A7C700E537B9 /* TBContato.m */; };
 		92EDB1FE199F8CF200CFC048 /* TBListaContatosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92EDB1FD199F8CF200CFC048 /* TBListaContatosViewController.m */; };
+		92FBB06D19B2062F0006E1C7 /* TBMapaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FBB06B19B2062F0006E1C7 /* TBMapaViewController.m */; };
+		92FBB06E19B2062F0006E1C7 /* TBMapaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92FBB06C19B2062F0006E1C7 /* TBMapaViewController.xib */; };
+		92FBB07019B20D150006E1C7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FBB06F19B20D150006E1C7 /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +71,15 @@
 		923C164719A9168F00D33905 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		923C164919A919A200D33905 /* TBMailServiceControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMailServiceControl.h; sourceTree = "<group>"; };
 		923C164A19A919A200D33905 /* TBMailServiceControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMailServiceControl.m; sourceTree = "<group>"; };
+		9265594319B2186B00BFCBDB /* Vila Mariana.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Vila Mariana.gpx"; sourceTree = "<group>"; };
+		9265594519B2294F00BFCBDB /* TBMeuLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMeuLabel.h; sourceTree = "<group>"; };
+		9265594619B2294F00BFCBDB /* TBMeuLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMeuLabel.m; sourceTree = "<group>"; };
+		9265594819B248C100BFCBDB /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
+		9265594919B248C100BFCBDB /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
+		9265594A19B248C100BFCBDB /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
+		9265594B19B248C100BFCBDB /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		9265595119B24CD500BFCBDB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9265595319B254B800BFCBDB /* 3.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = 3.gif; sourceTree = "<group>"; };
 		926C12B819A8CF9300350F83 /* TBListaContatoDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TBListaContatoDelegate.h; sourceTree = "<group>"; };
 		926C12BC19A8D71A00350F83 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		926C12BE19A8E3D600350F83 /* TBMinhaLinhaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMinhaLinhaTableViewCell.h; sourceTree = "<group>"; };
@@ -95,6 +113,10 @@
 		92E679791996A7C700E537B9 /* TBContato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBContato.m; sourceTree = "<group>"; };
 		92EDB1FC199F8CF200CFC048 /* TBListaContatosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBListaContatosViewController.h; sourceTree = "<group>"; };
 		92EDB1FD199F8CF200CFC048 /* TBListaContatosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBListaContatosViewController.m; sourceTree = "<group>"; };
+		92FBB06A19B2062F0006E1C7 /* TBMapaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBMapaViewController.h; sourceTree = "<group>"; };
+		92FBB06B19B2062F0006E1C7 /* TBMapaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMapaViewController.m; sourceTree = "<group>"; };
+		92FBB06C19B2062F0006E1C7 /* TBMapaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TBMapaViewController.xib; sourceTree = "<group>"; };
+		92FBB06F19B20D150006E1C7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +124,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9265595219B24CD500BFCBDB /* CoreLocation.framework in Frameworks */,
+				92FBB07019B20D150006E1C7 /* MapKit.framework in Frameworks */,
 				923C164819A9169000D33905 /* MessageUI.framework in Frameworks */,
 				92E6793D19969C6900E537B9 /* CoreGraphics.framework in Frameworks */,
 				92E6794119969C6900E537B9 /* CoreData.framework in Frameworks */,
@@ -144,6 +168,34 @@
 			name = Category;
 			sourceTree = "<group>";
 		};
+		9265594E19B248D200BFCBDB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9265595319B254B800BFCBDB /* 3.gif */,
+				9265594319B2186B00BFCBDB /* Vila Mariana.gpx */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		9265594F19B248DD00BFCBDB /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				9265595019B248E200BFCBDB /* TPKeyboard */,
+			);
+			name = Library;
+			sourceTree = "<group>";
+		};
+		9265595019B248E200BFCBDB /* TPKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				9265594819B248C100BFCBDB /* TPKeyboardAvoidingScrollView.h */,
+				9265594919B248C100BFCBDB /* TPKeyboardAvoidingScrollView.m */,
+				9265594A19B248C100BFCBDB /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
+				9265594B19B248C100BFCBDB /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+			);
+			name = TPKeyboard;
+			sourceTree = "<group>";
+		};
 		926C12B919A8D54700350F83 /* SplashScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +214,8 @@
 		92E6792E19969C6900E537B9 = {
 			isa = PBXGroup;
 			children = (
+				9265594F19B248DD00BFCBDB /* Library */,
+				9265594E19B248D200BFCBDB /* Resources */,
 				926C12B919A8D54700350F83 /* SplashScreen */,
 				92E6794219969C6900E537B9 /* Contatos */,
 				92E6795F19969C6A00E537B9 /* ContatosTests */,
@@ -182,6 +236,8 @@
 		92E6793919969C6900E537B9 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9265595119B24CD500BFCBDB /* CoreLocation.framework */,
+				92FBB06F19B20D150006E1C7 /* MapKit.framework */,
 				923C164719A9168F00D33905 /* MessageUI.framework */,
 				92E6793A19969C6900E537B9 /* Foundation.framework */,
 				92E6793C19969C6900E537B9 /* CoreGraphics.framework */,
@@ -238,6 +294,7 @@
 		92E6796F19969C9B00E537B9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				92FBB06919B206140006E1C7 /* Mapa */,
 				92EDB1FB199F8BD600CFC048 /* Lista */,
 				92E6797019969CA100E537B9 /* Formulario */,
 			);
@@ -250,6 +307,8 @@
 				92E6797119969CB000E537B9 /* TBFormularioViewController.h */,
 				92E6797219969CB000E537B9 /* TBFormularioViewController.m */,
 				92E6797319969CB000E537B9 /* TBFormularioViewController.xib */,
+				9265594519B2294F00BFCBDB /* TBMeuLabel.h */,
+				9265594619B2294F00BFCBDB /* TBMeuLabel.m */,
 			);
 			name = Formulario;
 			sourceTree = "<group>";
@@ -284,6 +343,16 @@
 				926C12B819A8CF9300350F83 /* TBListaContatoDelegate.h */,
 			);
 			name = Lista;
+			sourceTree = "<group>";
+		};
+		92FBB06919B206140006E1C7 /* Mapa */ = {
+			isa = PBXGroup;
+			children = (
+				92FBB06A19B2062F0006E1C7 /* TBMapaViewController.h */,
+				92FBB06B19B2062F0006E1C7 /* TBMapaViewController.m */,
+				92FBB06C19B2062F0006E1C7 /* TBMapaViewController.xib */,
+			);
+			name = Mapa;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,9 +436,12 @@
 				92E6797519969CB000E537B9 /* TBFormularioViewController.xib in Resources */,
 				923C163819A900A500D33905 /* default2x.png in Resources */,
 				927A7B7819A8FF450060A3B0 /* icon-120.png in Resources */,
+				92FBB06E19B2062F0006E1C7 /* TBMapaViewController.xib in Resources */,
 				92E6795219969C6900E537B9 /* Images.xcassets in Resources */,
 				926C12C219A8E3D600350F83 /* TBMinhaLinhaTableViewCell.xib in Resources */,
+				9265594419B2186B00BFCBDB /* Vila Mariana.gpx in Resources */,
 				923C163419A8FFC900D33905 /* icon-58.png in Resources */,
+				9265595419B254B800BFCBDB /* 3.gif in Resources */,
 				926C12BD19A8D71A00350F83 /* icon.png in Resources */,
 				927A7B7519A8FEF10060A3B0 /* icon-56.png in Resources */,
 				923C163719A900A500D33905 /* default.png in Resources */,
@@ -391,7 +463,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9265594C19B248C100BFCBDB /* TPKeyboardAvoidingScrollView.m in Sources */,
+				9265594719B2294F00BFCBDB /* TBMeuLabel.m in Sources */,
 				923C164B19A919A200D33905 /* TBMailServiceControl.m in Sources */,
+				9265594D19B248C100BFCBDB /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				926C12C119A8E3D600350F83 /* TBMinhaLinhaTableViewCell.m in Sources */,
 				923C163C19A9079D00D33905 /* TBDefaultActionControl.m in Sources */,
 				92E6797419969CB000E537B9 /* TBFormularioViewController.m in Sources */,
@@ -401,6 +476,7 @@
 				923C164619A913F800D33905 /* UIDevice+Phone.m in Sources */,
 				92E6797A1996A7C700E537B9 /* TBContato.m in Sources */,
 				92EDB1FE199F8CF200CFC048 /* TBListaContatosViewController.m in Sources */,
+				92FBB06D19B2062F0006E1C7 /* TBMapaViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

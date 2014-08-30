@@ -8,6 +8,12 @@
 
 #import "TBAppDelegate.h"
 #import "TBListaContatosViewController.h"
+#import "TBMapaViewController.h"
+
+#define UIColorFromRGB(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 @implementation TBAppDelegate
 
@@ -28,8 +34,7 @@
 
     _contatos = [NSKeyedUnarchiver unarchiveObjectWithFile:self.arquivoContatos];
     [NSKeyedUnarchiver unarchiveObjectWithFile:self.arquivoContatos];
-          
-    NSLog(@"Path: %@, Total de Registro: %ld || dados: %@", _arquivoContatos, [_contatos count], [NSKeyedUnarchiver unarchiveObjectWithFile:self.arquivoContatos]);
+    
     if(!_contatos) {
         self.contatos = [NSMutableArray new];
     }
@@ -37,8 +42,36 @@
     TBListaContatosViewController *controllerInicial = [TBListaContatosViewController new];
     controllerInicial.contatos = self.contatos;
     
-    UINavigationController *barrinha = [[UINavigationController alloc] initWithRootViewController:controllerInicial ];
-    self.window.rootViewController = barrinha;
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controllerInicial ];
+
+    
+    TBMapaViewController *mapaVC = [TBMapaViewController new];
+    mapaVC.contatos = self.contatos;
+    
+    UINavigationController *navMapa = [[UINavigationController alloc] initWithRootViewController:mapaVC ];
+    
+    UITabBarController *tabs = [[UITabBarController alloc] init];
+    
+    // TabBar
+    [[UITabBar appearance] setTintColor:UIColorFromRGB(0xFFFFFF)];
+    [[UITabBar appearance] setBarTintColor:UIColorFromRGB(0x0F1830)];
+    
+    // Nav Bar superior
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x0F1830)];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+    
+    controllerInicial.navigationController.navigationBar.translucent = NO;
+    [controllerInicial.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil]];
+    
+    mapaVC.navigationController.navigationBar.translucent = NO;
+    [mapaVC.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil]];
+    
+    tabs.viewControllers = @[nav, navMapa];
+    [tabs.tabBar setTranslucent:NO];
+    
+    self.window.rootViewController = tabs;
     
     [self.window makeKeyAndVisible];
     return YES;

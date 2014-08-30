@@ -47,6 +47,10 @@
     [parse encodeObject:_telefone forKey:@"telefone"];
     [parse encodeObject:_site forKey:@"site"];
     [parse encodeObject:_endereco forKey:@"endereco"];
+    [parse encodeObject:_imagem forKey:@"imagem"];
+    [parse encodeDouble:_latitude forKey:@"latitude"];
+    [parse encodeDouble:_longitude forKey:@"longitude"];
+
 }
 
 - (id) initWithCoder : (NSCoder *) parse
@@ -56,8 +60,29 @@
     self.telefone = [parse decodeObjectForKey:@"telefone"];
     self.site = [parse decodeObjectForKey:@"site"];
     self.endereco = [parse decodeObjectForKey:@"endereco"];
+    self.imagem = [parse decodeObjectForKey:@"imagem"];
+    self.longitude = [parse decodeDoubleForKey:@"longitude"];
+    self.latitude = [parse decodeDoubleForKey:@"latitude"];
     
     return self;
+}
+
+
+-(NSString *) title
+{
+    return _nome;
+}
+
+-(NSString *) subtitle
+{
+    return _email;
+}
+
+-(CLLocationCoordinate2D) coordinate
+{
+    float longitude = [[NSString stringWithFormat:@"%f", self.longitude] floatValue];
+    float latitude  = [[NSString stringWithFormat:@"%f", self.latitude] floatValue];
+    return CLLocationCoordinate2DMake(latitude , longitude);
 }
 
 @end

@@ -8,6 +8,8 @@
 
 #import "TBFormularioViewController.h"
 #import "TBContato.h"
+#import "TPKeyboardAvoidingScrollView.h"
+
 
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -58,18 +60,15 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 - (void)viewDidLoad
 {
-    self.campos = @[self.nome, self.telefone, self.email, self.endereco, self.site];
+    
     self.navigationController.navigationBar.translucent = NO;
     [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil]];
+    
+    self.campos = @[self.nome, self.telefone, self.email, self.endereco, self.site];
     
     self.telefone.keyboardType = UIKeyboardTypeNumberPad;
     self.email.keyboardType = UIKeyboardTypeEmailAddress;
     self.site.keyboardType = UIKeyboardTypeURL;
-    
-    
-    //UIButton *botao = [[UIButton alloc] initWithFrame:CGRectMake(50, 50, 50, 15)];
-    //botao.backgroundColor = [UIColor redColor];
-    //[self.view addSubview:botao];
     
     if(self.selecionado)   {
         self.nome.text = self.selecionado.nome;
@@ -77,8 +76,20 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         self.site.text = self.selecionado.site;
         self.endereco.text = self.selecionado.endereco;
         self.telefone.text = self.selecionado.telefone;
+        self.longitude.text = [NSString stringWithFormat:@"%f", self.selecionado.longitude];
+        self.latitude.text = [NSString stringWithFormat:@"%f", self.selecionado.latitude];
+        
+        
+        if(self.selecionado.imagem) {
+            [self.foto setImage:self.selecionado.imagem forState:UIControlStateNormal];
+        }
     }
     
+    NSLog(@"Tudo OK! %@",[TPKeyboardAvoidingScrollView class]);
+    
+    // Content Size
+    self.fundo = (UIScrollView *) self.view;
+    self.fundo.contentSize = self.fundo.frame.size;
 }
 
 -(UIStatusBarStyle)preferredStatusBarStyle
@@ -110,6 +121,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     c.telefone = self.telefone.text;
     c.endereco = self.endereco.text;
     c.site = self.site.text;
+    c.latitude = [self.latitude.text doubleValue];
+    c.longitude = [self.longitude.text doubleValue];
+    
+    if(self.foto.imageView.image) {
+        c.imagem = self.foto.imageView.image;
+    }
     
 }
 
@@ -149,10 +166,13 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
     
-    picker.delegate = self;
     picker.allowsEditing = YES;
+    picker.delegate = self;
+
     
-    [self presentViewController:picker animated:YES completion:nil];
+    [self presentViewController:picker animated:YES completion:^ {
+        NSLog(@"Abriu selec Image");
+    }];
 }
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
@@ -164,4 +184,33 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 
 
+- (IBAction)carregarLocalizacao:(UIButton *) button {
+    CLGeocoder *coder = [CLGeocoder new];
+    NSLog(@"Iniciando solicitação de carregar ponto");
+    
+    button.hidden = YES;
+    [self.indicator startAnimating];
+    
+    
+    [coder geocodeAddressString:self.endereco.text completionHandler:^(NSArray *locations, NSError *error){
+        NSLog(@"Pontos: %@", locations);
+        
+        if(locations) {
+            CLPlacemark *local = locations[0];
+            CLLocationCoordinate2D coordenada = local.location.coordinate;
+            
+            self.latitude.text = [NSString stringWithFormat:@"%f", coordenada.latitude];
+            self.longitude.text = [NSString stringWithFormat:@"%f", coordenada.longitude];
+        } else {
+            [[[UIAlertView alloc] initWithTitle:@"Notificação"
+                                        message:@"Não foi possível localizar as coordenadas do seu endereço."
+                                       delegate:nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil] show];
+        }
+        
+        [self.indicator stopAnimating];
+        button.hidden = NO;
+    }];
+}
 @end

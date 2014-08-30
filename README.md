@@ -12,3 +12,5 @@ https://www.caelum.com.br/curso-ios-iphone-ipad/
  - http://www.zucchiniframework.org/
  - http://www.imind.eu/mobile/2014/02/19/ios-integration-testing-on-ci/
  - http://www.imind.eu/mobile/
+ - https://www.cocoacontrols.com
+ - http://cocoapods.org/

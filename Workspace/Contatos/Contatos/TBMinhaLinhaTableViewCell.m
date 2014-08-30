@@ -19,17 +19,18 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 - (void)awakeFromNib
 {
     // Initialization code
+    self.imageView.contentMode = UIViewContentModeScaleAspectFit;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
 //    [super setSelected:selected animated:animated];
     if(selected) {
-        self.backgroundColor = UIColorFromRGB(0x91C46C);
+        self.backgroundColor = UIColorFromRGB(0x336280);
         selected = NO;
+    }else {
+        self.backgroundColor = UIColorFromRGB(0xFFFFFF);
     }
-
-    // Configure the view for the selected state
 }
 
 @end

@@ -10,4 +10,9 @@
 
 @interface TBMinhaLinhaTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *nomeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *emailLabel;
+
+@property (weak, nonatomic) IBOutlet UIImageView *avatarIV;
+
 @end
