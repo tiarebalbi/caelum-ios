@@ -8,7 +8,9 @@
 
 #import "TBAppDelegate.h"
 #import "TBListaContatosViewController.h"
+#import "TBNavigationViewController.h"
 #import "TBMapaViewController.h"
+#import "JASidePanelController.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor \
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
@@ -71,7 +73,12 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     tabs.viewControllers = @[nav, navMapa];
     [tabs.tabBar setTranslucent:NO];
     
-    self.window.rootViewController = tabs;
+    JASidePanelController *viewController = [[JASidePanelController alloc] init];
+    viewController.shouldDelegateAutorotateToVisiblePanel = NO;
+    viewController.leftPanel = [[TBNavigationViewController alloc] init];
+    viewController.centerPanel = tabs;
+    
+    self.window.rootViewController = viewController;
     
     [self.window makeKeyAndVisible];
     return YES;

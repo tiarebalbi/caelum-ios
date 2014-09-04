@@ -25,7 +25,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     if(self = [super init]) {
         self.title = @"Contatos";
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target:self action:@selector(addContato)];
-        self.navigationItem.leftBarButtonItem = self.editButtonItem;
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target:self action:@selector(toggleLeftBar)];
+
         
         UITabBarItem *tabItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:0 ];
         tabItem.title = @"Contatos";
@@ -38,6 +39,11 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     return self;
 }
+
+-(void)toggleLeftBar {
+//    [self ]
+}
+
 // Quantidade de sessões, cada sessão pode ter uma ou mais row's
 - (NSInteger) numberOfSectionsInTableView:(UITableView *)tableView
 {
