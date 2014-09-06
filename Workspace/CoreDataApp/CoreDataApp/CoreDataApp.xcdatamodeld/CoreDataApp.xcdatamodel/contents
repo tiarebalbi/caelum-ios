@@ -17,6 +17,6 @@
     </entity>
     <elements>
         <element name="Event" positionX="378" positionY="203" width="135" height="58"/>
-        <element name="Contato" positionX="360" positionY="410" width="128" height="148"/>
+        <element name="Contato" positionX="736" positionY="341" width="128" height="148"/>
     </elements>
 </model>

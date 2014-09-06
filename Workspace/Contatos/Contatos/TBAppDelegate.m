@@ -28,25 +28,16 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+    
+    // Insere um registro de teste
+    [self inserirDados];
+    self.contatos = [[NSMutableArray alloc] initWithArray:[TBContato listaTodosInContext:self.managedObjectContext onError:nil]];
    
-    // Verificando o local de armazenamento de arquivos no dispositivo.
-    NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *dirAtual = dirs[0];
-    self.arquivoContatos = [NSString stringWithFormat:@"%@/ArquivoContatos", dirAtual];
-
-    _contatos = [NSKeyedUnarchiver unarchiveObjectWithFile:self.arquivoContatos];
-    [NSKeyedUnarchiver unarchiveObjectWithFile:self.arquivoContatos];
-    
-    if(!_contatos) {
-        self.contatos = [NSMutableArray new];
-    }
-    
     TBListaContatosViewController *controllerInicial = [TBListaContatosViewController new];
     controllerInicial.contatos = self.contatos;
     
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controllerInicial ];
 
-    
     TBMapaViewController *mapaVC = [TBMapaViewController new];
     mapaVC.contatos = self.contatos;
     
@@ -54,7 +45,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     UITabBarController *tabs = [[UITabBarController alloc] init];
     
-    // TabBar
+    // UITabBar
     [[UITabBar appearance] setTintColor:UIColorFromRGB(0xFFFFFF)];
     [[UITabBar appearance] setBarTintColor:UIColorFromRGB(0x061223)];
     
@@ -92,7 +83,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    [self serializarDados];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -109,12 +99,21 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 {
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
-    [self serializarDados];
 }
 
-- (void) serializarDados
+- (void) inserirDados
 {
-    [NSKeyedArchiver archiveRootObject:self.contatos toFile:_arquivoContatos];
+    NSUserDefaults *configuracoes = [NSUserDefaults standardUserDefaults];
+    BOOL dadosInseridos = [configuracoes boolForKey:@"dados_inseridos"];
+    
+    if(!dadosInseridos) {
+        TBContato *caelumSP = [TBContato contatoWithContext:self.managedObjectContext andNome:@"Caelum SP"];
+        caelumSP.site = @"http://www.caelum.com.br";
+        
+        [self saveContext];
+        [configuracoes setBool:YES forKey:@"dados_inseridos"];
+        [configuracoes synchronize];
+    }
 }
 
 - (void)saveContext
@@ -123,10 +122,17 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
-             // Replace this implementation with code to handle the error appropriately.
-             // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development. 
-            NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-            abort();
+
+            NSDictionary *informacoes = [error userInfo];
+            NSArray *multiplosErros = [informacoes objectForKey:NSDetailedErrorsKey];
+            
+            if (multiplosErros) {
+                for (NSError *erro in multiplosErros) {
+                    NSLog(@"Ocorreu um problema: %@", [erro userInfo]);
+                }
+            }
+            
+            NSLog(@"Ocorreu um problema: %@", [error userInfo]);
         } 
     }
 }

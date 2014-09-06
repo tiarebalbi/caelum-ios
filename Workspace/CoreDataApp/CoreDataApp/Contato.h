@@ -15,9 +15,10 @@
 @property (nonatomic, retain) NSString * nome;
 @property (nonatomic, retain) NSString * email;
 @property (nonatomic, retain) NSString * telefone;
+@property (nonatomic, retain) NSString * site;
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSNumber * longitude;
-@property (nonatomic, retain) UIImage *imagem;
+@property (nonatomic, retain) UIImage  * imagem;
 @property (nonatomic, retain) NSString * endereco;
 
 @end

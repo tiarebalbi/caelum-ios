@@ -49,6 +49,7 @@
 		92FBB06D19B2062F0006E1C7 /* TBMapaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FBB06B19B2062F0006E1C7 /* TBMapaViewController.m */; };
 		92FBB06E19B2062F0006E1C7 /* TBMapaViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 92FBB06C19B2062F0006E1C7 /* TBMapaViewController.xib */; };
 		92FBB07019B20D150006E1C7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92FBB06F19B20D150006E1C7 /* MapKit.framework */; };
+		92FD76F719BB844B00CA527B /* UIViewController+ComPersistencia.m in Sources */ = {isa = PBXBuildFile; fileRef = 92FD76F619BB844B00CA527B /* UIViewController+ComPersistencia.m */; };
 		DA4057B619B8F76E000D2D38 /* TBNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DA4057B419B8F76E000D2D38 /* TBNavigationViewController.m */; };
 		DA4057B719B8F76E000D2D38 /* TBNavigationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DA4057B519B8F76E000D2D38 /* TBNavigationViewController.xib */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,8 @@
 		92FBB06B19B2062F0006E1C7 /* TBMapaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBMapaViewController.m; sourceTree = "<group>"; };
 		92FBB06C19B2062F0006E1C7 /* TBMapaViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TBMapaViewController.xib; sourceTree = "<group>"; };
 		92FBB06F19B20D150006E1C7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		92FD76F519BB844B00CA527B /* UIViewController+ComPersistencia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ComPersistencia.h"; sourceTree = "<group>"; };
+		92FD76F619BB844B00CA527B /* UIViewController+ComPersistencia.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ComPersistencia.m"; sourceTree = "<group>"; };
 		DA4057B319B8F76E000D2D38 /* TBNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TBNavigationViewController.h; sourceTree = "<group>"; };
 		DA4057B419B8F76E000D2D38 /* TBNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TBNavigationViewController.m; sourceTree = "<group>"; };
 		DA4057B519B8F76E000D2D38 /* TBNavigationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TBNavigationViewController.xib; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 			children = (
 				923C164419A913F800D33905 /* UIDevice+Phone.h */,
 				923C164519A913F800D33905 /* UIDevice+Phone.m */,
+				92FD76F519BB844B00CA527B /* UIViewController+ComPersistencia.h */,
+				92FD76F619BB844B00CA527B /* UIViewController+ComPersistencia.m */,
 			);
 			name = Category;
 			sourceTree = "<group>";
@@ -527,6 +532,7 @@
 				923C164B19A919A200D33905 /* TBMailServiceControl.m in Sources */,
 				9265594D19B248C100BFCBDB /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
 				926C12C119A8E3D600350F83 /* TBMinhaLinhaTableViewCell.m in Sources */,
+				92FD76F719BB844B00CA527B /* UIViewController+ComPersistencia.m in Sources */,
 				923C163C19A9079D00D33905 /* TBDefaultActionControl.m in Sources */,
 				92E6797419969CB000E537B9 /* TBFormularioViewController.m in Sources */,
 				92E6794D19969C6900E537B9 /* TBAppDelegate.m in Sources */,

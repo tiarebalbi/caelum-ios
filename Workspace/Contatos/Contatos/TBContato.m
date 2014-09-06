@@ -10,6 +10,15 @@
 
 @implementation TBContato
 
+@dynamic nome;
+@dynamic email;
+@dynamic telefone;
+@dynamic latitude;
+@dynamic longitude;
+@dynamic imagem;
+@dynamic endereco;
+@dynamic site;
+
 - (TBContato *) init
 {
     if(self = [super init]) {
@@ -24,65 +33,52 @@
     return self;
 }
 
-- (id) initWithName : (NSString *) nome email:(NSString *) email telefone:(NSString *)telefone endereco:(NSString *) endereco site: (NSString *)site
+#pragma mark - Active Record
+
++ (TBContato *) contatoWithContext : (NSManagedObjectContext *) ctx andNome : (NSString *) nome
 {
-    if(self = [self init]) {
-        self.nome = nome;
-        self.email = email;
-        self.telefone = telefone;
-        self.endereco = endereco;
-        self.site = site;
+    TBContato *contato = [NSEntityDescription insertNewObjectForEntityForName:@"Contato"inManagedObjectContext:ctx];
+    contato.nome = nome;
+    return contato;
+}
+
++ (NSArray *) listaTodosInContext : (NSManagedObjectContext *) ctx onError : (void(^)(void)) block
+{
+    NSFetchRequest *busca = [NSFetchRequest fetchRequestWithEntityName:@"Contato"];
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"nome" ascending:YES];
+    busca.sortDescriptors = @[sort];
+    
+    NSError *error = nil;
+    NSArray* resultado = [ctx executeFetchRequest:busca error:&error];
+    
+    if(error && block) {
+        block();
     }
     
-    return self;
+    return resultado;
 }
 
-
-
-
-- (void) encodeWithCoder : (NSCoder *) parse
-{
-    [parse encodeObject:_nome forKey:@"nome"];
-    [parse encodeObject:_email forKey:@"email"];
-    [parse encodeObject:_telefone forKey:@"telefone"];
-    [parse encodeObject:_site forKey:@"site"];
-    [parse encodeObject:_endereco forKey:@"endereco"];
-    [parse encodeObject:_imagem forKey:@"imagem"];
-    [parse encodeDouble:_latitude forKey:@"latitude"];
-    [parse encodeDouble:_longitude forKey:@"longitude"];
-
-}
-
-- (id) initWithCoder : (NSCoder *) parse
-{
-    self.nome = [parse decodeObjectForKey:@"nome"];
-    self.email = [parse decodeObjectForKey:@"email"];
-    self.telefone = [parse decodeObjectForKey:@"telefone"];
-    self.site = [parse decodeObjectForKey:@"site"];
-    self.endereco = [parse decodeObjectForKey:@"endereco"];
-    self.imagem = [parse decodeObjectForKey:@"imagem"];
-    self.longitude = [parse decodeDoubleForKey:@"longitude"];
-    self.latitude = [parse decodeDoubleForKey:@"latitude"];
-    
-    return self;
-}
-
-
+#pragma mark - MKAnnotationView
 -(NSString *) title
 {
-    return _nome;
+    return self.nome;
 }
 
 -(NSString *) subtitle
 {
-    return _email;
+    return self.email;
 }
 
 -(CLLocationCoordinate2D) coordinate
 {
-    float longitude = [[NSString stringWithFormat:@"%f", self.longitude] floatValue];
-    float latitude  = [[NSString stringWithFormat:@"%f", self.latitude] floatValue];
+    float longitude = [self.longitude floatValue];
+    float latitude  = [self.latitude floatValue];
     return CLLocationCoordinate2DMake(latitude , longitude);
 }
+
+
+
+
+
 
 @end

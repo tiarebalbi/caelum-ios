@@ -16,7 +16,7 @@ colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
-@interface TBFormularioViewController ()
+@interface TBFormularioViewController (ComPersistencia)
 
 @end
 
@@ -76,8 +76,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         self.site.text = self.selecionado.site;
         self.endereco.text = self.selecionado.endereco;
         self.telefone.text = self.selecionado.telefone;
-        self.longitude.text = [NSString stringWithFormat:@"%f", self.selecionado.longitude];
-        self.latitude.text = [NSString stringWithFormat:@"%f", self.selecionado.latitude];
+        self.longitude.text = [NSString stringWithFormat:@"%@", [self.selecionado.longitude stringValue]];
+        self.latitude.text = [NSString stringWithFormat:@"%@", [self.selecionado.latitude stringValue]];
         
         
         if(self.selecionado.imagem) {
@@ -121,8 +121,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     c.telefone = self.telefone.text;
     c.endereco = self.endereco.text;
     c.site = self.site.text;
-    c.latitude = [self.latitude.text doubleValue];
-    c.longitude = [self.longitude.text doubleValue];
+    c.latitude = [NSNumber numberWithFloat:[self.latitude.text floatValue ]];
+    c.longitude = [NSNumber numberWithFloat:[self.longitude.text floatValue ]];
     
     if(self.foto.imageView.image) {
         c.imagem = self.foto.imageView.image;

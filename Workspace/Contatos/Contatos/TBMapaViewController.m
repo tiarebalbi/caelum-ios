@@ -125,7 +125,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     TBFormularioViewController *formController = [[TBFormularioViewController alloc] initWithContato:contato];
     
     UINavigationController *barrinha = [[UINavigationController alloc] initWithRootViewController:formController];
-    //barrinha.navigationItem.leftBarButtonItem = [UI]
     [self presentViewController:barrinha animated:YES completion:nil];
 }
 

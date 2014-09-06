@@ -17,4 +17,5 @@
     #import "UIDevice+Phone.h"
     #import <MapKit/MapKit.h>
     #import <CoreLocation/CoreLocation.h>
+    #import "UIViewController+ComPersistencia.h"
 #endif

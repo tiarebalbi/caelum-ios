@@ -8,17 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TBContato : NSObject<NSCoding, MKAnnotation>
+@interface TBContato : NSManagedObject<MKAnnotation>
 
-@property NSString *nome;
-@property NSString *telefone;
-@property NSString *email;
-@property NSString *endereco;
-@property NSString *site;
-@property double latitude;
-@property double longitude;
-@property UIImage *imagem;
+@property (nonatomic, retain) NSString * nome;
+@property (nonatomic, retain) NSString * email;
+@property (nonatomic, retain) NSString * telefone;
+@property (nonatomic, retain) NSNumber * latitude;
+@property (nonatomic, retain) NSNumber * longitude;
+@property (nonatomic, retain) UIImage  * imagem;
+@property (nonatomic, retain) NSString * endereco;
+@property (nonatomic, retain) NSString * site;
 
-- (id) initWithName : (NSString *) nome email:(NSString *) email telefone:(NSString *)telefone endereco:(NSString *) endereco site: (NSString *)site;
+#pragma mark - Active Record
 
++ (TBContato *) contatoWithContext : (NSManagedObjectContext *) ctx andNome : (NSString *) nome;
++ (NSArray *) listaTodosInContext : (NSManagedObjectContext *) ctx onError : (void(^)(void)) block;
 @end
