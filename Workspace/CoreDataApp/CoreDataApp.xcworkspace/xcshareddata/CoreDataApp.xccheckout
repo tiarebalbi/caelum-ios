@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>D979CD82-4AB4-4B69-916C-1177A854CAAF</string>
+	<string>96935234-B9B4-4C9A-B85D-E956685C462B</string>
 	<key>IDESourceControlProjectName</key>
 	<string>CoreDataApp</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -14,11 +14,11 @@
 		<string>ssh://github.com/tiarebalbi/caelum-ios.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Workspace/CoreDataApp/CoreDataApp.xcodeproj/project.xcworkspace</string>
+	<string>Workspace/CoreDataApp/CoreDataApp.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>B626DCCE-0523-4489-8D6B-B2BA05D75DA8</key>
-		<string>../../../..</string>
+		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>ssh://github.com/tiarebalbi/caelum-ios.git</string>

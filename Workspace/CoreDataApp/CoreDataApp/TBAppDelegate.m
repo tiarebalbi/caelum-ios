@@ -9,6 +9,7 @@
 #import "TBAppDelegate.h"
 #import "Contato.h"
 #import "TBMasterViewController.h"
+#import "AFHTTPRequestOperationManager.h"
 
 @implementation TBAppDelegate
 
@@ -22,7 +23,20 @@
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     
 
+    NSString *url = @"http://api.openweathermap.org/data/2.5/weather?lat=-23.588079&lon=-46.632291&units=metric";
     
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    
+    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id response) {
+        
+        NSDictionary *json = (NSDictionary *) response;
+        
+        NSLog(@"Success: %@", json[@"weather"][0][@"description"]);
+        NSLog(@"Array: %@", json[@"weather"]);
+        NSLog(@"Valor Errado: %@", json[@"weather"][0][@"description2"]);
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error");
+    }];
     
     NSManagedObjectContext *berco = [self managedObjectContext];
     
