@@ -7,7 +7,7 @@
 //
 
 #import "TBAppDelegate.h"
-
+#import "Contato.h"
 #import "TBMasterViewController.h"
 
 @implementation TBAppDelegate
@@ -20,6 +20,16 @@
 {
     // Override point for customization after application launch.
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    
+
+    
+    
+    NSManagedObjectContext *berco = [self managedObjectContext];
+    
+    Contato *contato = [NSEntityDescription insertNewObjectForEntityForName:NSStringFromClass([Contato class]) inManagedObjectContext:berco];
+    contato.nome = @"Teste";
+    [self saveContext];
+    
     TBMasterViewController *controller = (TBMasterViewController *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
     return YES;

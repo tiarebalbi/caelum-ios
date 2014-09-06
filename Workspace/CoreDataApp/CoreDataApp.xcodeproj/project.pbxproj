@@ -25,6 +25,8 @@
 		92A5B03319BB4ED9002076AC /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 92A5B00E19BB4ED9002076AC /* CoreData.framework */; };
 		92A5B03B19BB4EDA002076AC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 92A5B03919BB4EDA002076AC /* InfoPlist.strings */; };
 		92A5B03D19BB4EDA002076AC /* CoreDataAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B03C19BB4EDA002076AC /* CoreDataAppTests.m */; };
+		92A5B04B19BB55CA002076AC /* Contato.m in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B04A19BB55CA002076AC /* Contato.m */; };
+		92A5B05019BB5BDD002076AC /* V_1__CoreDateApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 92A5B04E19BB5BDD002076AC /* V_1__CoreDateApp.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,9 @@
 		92A5B03819BB4EDA002076AC /* CoreDataAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CoreDataAppTests-Info.plist"; sourceTree = "<group>"; };
 		92A5B03A19BB4EDA002076AC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		92A5B03C19BB4EDA002076AC /* CoreDataAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CoreDataAppTests.m; sourceTree = "<group>"; };
+		92A5B04919BB55CA002076AC /* Contato.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Contato.h; sourceTree = "<group>"; };
+		92A5B04A19BB55CA002076AC /* Contato.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Contato.m; sourceTree = "<group>"; };
+		92A5B04F19BB5BDD002076AC /* V_1__CoreDateApp.xcdatamodel */ = {isa = PBXFileReference; explicitFileType = wrapper.xcdatamodeld; path = V_1__CoreDateApp.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,15 +128,12 @@
 		92A5B01019BB4ED9002076AC /* CoreDataApp */ = {
 			isa = PBXGroup;
 			children = (
+				92A5B04C19BB596A002076AC /* Model */,
+				92A5B04619BB5082002076AC /* Controller */,
 				92A5B01919BB4ED9002076AC /* TBAppDelegate.h */,
 				92A5B01A19BB4ED9002076AC /* TBAppDelegate.m */,
 				92A5B01C19BB4ED9002076AC /* Main.storyboard */,
-				92A5B02219BB4ED9002076AC /* TBMasterViewController.h */,
-				92A5B02319BB4ED9002076AC /* TBMasterViewController.m */,
-				92A5B02519BB4ED9002076AC /* TBDetailViewController.h */,
-				92A5B02619BB4ED9002076AC /* TBDetailViewController.m */,
 				92A5B02819BB4ED9002076AC /* Images.xcassets */,
-				92A5B01F19BB4ED9002076AC /* CoreDataApp.xcdatamodeld */,
 				92A5B01119BB4ED9002076AC /* Supporting Files */,
 			);
 			path = CoreDataApp;
@@ -164,6 +166,52 @@
 				92A5B03919BB4EDA002076AC /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		92A5B04619BB5082002076AC /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				92A5B04819BB50AE002076AC /* DetailView */,
+				92A5B04719BB50A5002076AC /* MasterView */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		92A5B04719BB50A5002076AC /* MasterView */ = {
+			isa = PBXGroup;
+			children = (
+				92A5B02219BB4ED9002076AC /* TBMasterViewController.h */,
+				92A5B02319BB4ED9002076AC /* TBMasterViewController.m */,
+			);
+			name = MasterView;
+			sourceTree = "<group>";
+		};
+		92A5B04819BB50AE002076AC /* DetailView */ = {
+			isa = PBXGroup;
+			children = (
+				92A5B02519BB4ED9002076AC /* TBDetailViewController.h */,
+				92A5B02619BB4ED9002076AC /* TBDetailViewController.m */,
+			);
+			name = DetailView;
+			sourceTree = "<group>";
+		};
+		92A5B04C19BB596A002076AC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				92A5B04D19BB597D002076AC /* Entity */,
+				92A5B01F19BB4ED9002076AC /* CoreDataApp.xcdatamodeld */,
+				92A5B04E19BB5BDD002076AC /* V_1__CoreDateApp.xcdatamodeld */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		92A5B04D19BB597D002076AC /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				92A5B04919BB55CA002076AC /* Contato.h */,
+				92A5B04A19BB55CA002076AC /* Contato.m */,
+			);
+			name = Entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,6 +316,8 @@
 				92A5B01B19BB4ED9002076AC /* TBAppDelegate.m in Sources */,
 				92A5B02719BB4ED9002076AC /* TBDetailViewController.m in Sources */,
 				92A5B02119BB4ED9002076AC /* CoreDataApp.xcdatamodeld in Sources */,
+				92A5B04B19BB55CA002076AC /* Contato.m in Sources */,
+				92A5B05019BB5BDD002076AC /* V_1__CoreDateApp.xcdatamodeld in Sources */,
 				92A5B01719BB4ED9002076AC /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -492,6 +542,16 @@
 			);
 			currentVersion = 92A5B02019BB4ED9002076AC /* CoreDataApp.xcdatamodel */;
 			path = CoreDataApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		92A5B04E19BB5BDD002076AC /* V_1__CoreDateApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				92A5B04F19BB5BDD002076AC /* V_1__CoreDateApp.xcdatamodel */,
+			);
+			currentVersion = 92A5B04F19BB5BDD002076AC /* V_1__CoreDateApp.xcdatamodel */;
+			path = V_1__CoreDateApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
