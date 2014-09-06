@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 
-@interface TBMapaViewController : UIViewController
+@interface TBMapaViewController : UIViewController <MKMapViewDelegate>
 
 @property (nonatomic, weak) IBOutlet MKMapView *mapa;
 @property (nonatomic, weak) NSMutableArray *contatos;

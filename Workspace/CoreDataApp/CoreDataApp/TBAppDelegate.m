@@ -1,21 +1,14 @@
 //
 //  TBAppDelegate.m
-//  Contatos
+//  CoreDataApp
 //
-//  Created by ios4584 on 09/08/14.
+//  Created by ios4584 on 06/09/14.
 //  Copyright (c) 2014 Tiarê Balbi. All rights reserved.
 //
 
 #import "TBAppDelegate.h"
-#import "TBListaContatosViewController.h"
-#import "TBNavigationViewController.h"
-#import "TBMapaViewController.h"
-#import "JASidePanelController.h"
 
-#define UIColorFromRGB(rgbValue) [UIColor \
-colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
-green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
-blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+#import "TBMasterViewController.h"
 
 @implementation TBAppDelegate
 
@@ -25,65 +18,13 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-   
-    // Verificando o local de armazenamento de arquivos no dispositivo.
-    NSArray *dirs = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *dirAtual = dirs[0];
-    self.arquivoContatos = [NSString stringWithFormat:@"%@/ArquivoContatos", dirAtual];
-
-    _contatos = [NSKeyedUnarchiver unarchiveObjectWithFile:self.arquivoContatos];
-    [NSKeyedUnarchiver unarchiveObjectWithFile:self.arquivoContatos];
-    
-    if(!_contatos) {
-        self.contatos = [NSMutableArray new];
-    }
-    
-    TBListaContatosViewController *controllerInicial = [TBListaContatosViewController new];
-    controllerInicial.contatos = self.contatos;
-    
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controllerInicial ];
-
-    
-    TBMapaViewController *mapaVC = [TBMapaViewController new];
-    mapaVC.contatos = self.contatos;
-    
-    UINavigationController *navMapa = [[UINavigationController alloc] initWithRootViewController:mapaVC ];
-    
-    UITabBarController *tabs = [[UITabBarController alloc] init];
-    
-    // TabBar
-    [[UITabBar appearance] setTintColor:UIColorFromRGB(0xFFFFFF)];
-    [[UITabBar appearance] setBarTintColor:UIColorFromRGB(0x061223)];
-    
-    // Nav Bar superior
-    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(0x061223)];
-    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
-    controllerInicial.navigationController.navigationBar.translucent = NO;
-    [controllerInicial.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil]];
-    
-    mapaVC.navigationController.navigationBar.translucent = NO;
-    [mapaVC.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName,nil]];
-    
-    tabs.viewControllers = @[nav, navMapa];
-    [tabs.tabBar setTranslucent:NO];
-    
-    JASidePanelController *viewController = [[JASidePanelController alloc] init];
-    viewController.shouldDelegateAutorotateToVisiblePanel = NO;
-    viewController.leftPanel = [[TBNavigationViewController alloc] init];
-    viewController.centerPanel = tabs;
-    
-    self.window.rootViewController = viewController;
-    
-    [self.window makeKeyAndVisible];
+    UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+    TBMasterViewController *controller = (TBMasterViewController *)navigationController.topViewController;
+    controller.managedObjectContext = self.managedObjectContext;
     return YES;
 }
-
+							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -92,7 +33,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    [self serializarDados];
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
@@ -109,12 +51,6 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 {
     // Saves changes in the application's managed object context before the application terminates.
     [self saveContext];
-    [self serializarDados];
-}
-
-- (void) serializarDados
-{
-    [NSKeyedArchiver archiveRootObject:self.contatos toFile:_arquivoContatos];
 }
 
 - (void)saveContext
@@ -156,7 +92,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     if (_managedObjectModel != nil) {
         return _managedObjectModel;
     }
-    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"Contatos" withExtension:@"momd"];
+    NSURL *modelURL = [[NSBundle mainBundle] URLForResource:@"CoreDataApp" withExtension:@"momd"];
     _managedObjectModel = [[NSManagedObjectModel alloc] initWithContentsOfURL:modelURL];
     return _managedObjectModel;
 }
@@ -169,7 +105,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
         return _persistentStoreCoordinator;
     }
     
-    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"Contatos.sqlite"];
+    NSURL *storeURL = [[self applicationDocumentsDirectory] URLByAppendingPathComponent:@"CoreDataApp.sqlite"];
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];

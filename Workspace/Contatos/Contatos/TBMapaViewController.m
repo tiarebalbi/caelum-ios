@@ -7,6 +7,7 @@
 //
 
 #import "TBMapaViewController.h"
+#import "TBFormularioViewController.h"
 #import "TBContato.h"
 
 #define UIColorFromRGB(rgbValue) [UIColor \
@@ -51,6 +52,8 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     MKUserTrackingBarButtonItem *button = [[MKUserTrackingBarButtonItem alloc] initWithMapView:self.mapa];
     self.navigationItem.leftBarButtonItem = button;
+    
+    self.mapa.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -84,34 +87,46 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
 - (MKAnnotationView *) mapView : (MKMapView *) map viewForAnnotation:(id<MKAnnotation>)annotation
 {
     
-    if([annotation isKindOfClass:[MKUserLocation class]]){
-        return nil;
+    if([annotation isKindOfClass:[TBContato class]]){
+       
+        static NSString *key = @"pino";
+        TBContato *contato = (TBContato *) annotation;
+    
+        MKPinAnnotationView *pino = (MKPinAnnotationView *)[map dequeueReusableAnnotationViewWithIdentifier:key];
+        if(!pino) {
+            pino = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:key];
+            pino.pinColor = MKPinAnnotationColorPurple;
+        }else{
+            pino.annotation = contato;
+        }
+        
+        pino.canShowCallout = YES;
+    
+        if(contato.imagem) {
+            NSLog(@"PossuiFoto");
+            UIImageView *imagemContato = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32) ];
+            imagemContato.image = contato.imagem;
+            pino.leftCalloutAccessoryView = imagemContato;
+
+            // Inseri uma imagem no pino
+            // pino.image = contato.imagem;
+            pino.rightCalloutAccessoryView =[ UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+        }
+        return pino;
     }
     
-    static NSString *key = @"pino";
     
+    return nil;
+}
+
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    TBContato *contato = (TBContato *) view.annotation;
+    TBFormularioViewController *formController = [[TBFormularioViewController alloc] initWithContato:contato];
     
-    MKPinAnnotationView *pino = (MKPinAnnotationView *)[map dequeueReusableAnnotationViewWithIdentifier:key];
-    
-    if(!pino) {
-        pino = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:key];
-        pino.pinColor = MKPinAnnotationColorGreen;
-    }else{
-        pino.annotation = annotation;
-    }
-    
-    TBContato *contato = (TBContato *) annotation;
-    
-    
-    if(contato.imagem) {
-        NSLog(@"PossuiFoto");
-        UIImageView *imagemContato = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 32, 32) ];
-        imagemContato.image = contato.imagem;
-        pino.leftCalloutAccessoryView = imagemContato;
-    }
-    
-    
-    return pino;
+    UINavigationController *barrinha = [[UINavigationController alloc] initWithRootViewController:formController];
+    //barrinha.navigationItem.leftBarButtonItem = [UI]
+    [self presentViewController:barrinha animated:YES completion:nil];
 }
 
 @end

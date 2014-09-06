@@ -11,6 +11,11 @@
 #import "TBListaContatosViewController.h"
 #import "UIViewController+JASidePanel.h"
 
+#define UIColorFromRGB(rgbValue) [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
+green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
 @interface TBNavigationViewController ()
 
 @property (nonatomic, weak) UILabel *label;
@@ -23,13 +28,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	self.view.backgroundColor = [UIColor blueColor];
+	self.view.backgroundColor = UIColorFromRGB(0x092D40);
 	
 	UILabel *label  = [[UILabel alloc] init];
-    label.font = [UIFont boldSystemFontOfSize:20.0f];
+    label.font = [UIFont boldSystemFontOfSize:18.0f];
     label.textColor = [UIColor whiteColor];
     label.backgroundColor = [UIColor clearColor];
-	label.text = @"Fechar";
+	label.text = @"Menu";
 	[label sizeToFit];
 	label.autoresizingMask = UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleBottomMargin;
     [self.view addSubview:label];

@@ -25,7 +25,9 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     if(self = [super init]) {
         self.title = @"Contatos";
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target:self action:@selector(addContato)];
-        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem: UIBarButtonSystemItemAdd target:self action:@selector(toggleLeftBar)];
+        
+        UIImage *navIcon = [UIImage imageNamed:@"Artboard 1"];
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:navIcon style:UIBarButtonItemStyleDone target:self action:@selector(toggleLeftBar)];
 
         
         UITabBarItem *tabItem = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemContacts tag:0 ];
@@ -92,7 +94,10 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     TBContato *linha = self.contatos[path.row];
     cell.nomeLabel.text = linha.nome;
     cell.emailLabel.text = linha.email;
-    
+    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+
+    //cell.imageView.image = linha.imagem;
+        
     if(linha.imagem) {
         cell.imageView.image = linha.imagem;
     } else {
@@ -137,7 +142,7 @@ blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
     
     // Pull Request Refresh
     self.refreshControl = [[UIRefreshControl alloc] init];
-    self.refreshControl.backgroundColor = UIColorFromRGB(0x207E9A);
+    self.refreshControl.backgroundColor = UIColorFromRGB(0x134240);
     self.refreshControl.tintColor = [UIColor whiteColor];
     [self.refreshControl addTarget:self
                             action:@selector(reloadData)
